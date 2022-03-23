@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "pomodoro-plugin",
+    "description": "番茄钟-专注你正在做的事情-vue2重构版本的chrome插件",
+    "version": "0.1.0",
+    "browser_action": {
+        "default_title": "番茄钟",
+        "default_icon": "assets/icon48.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [],
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "icons": {
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "css": ["css/popup.css"],
+        "js": ["js/chunk-vendors.js"],
+        "run_at": "document_idle"
+    }],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "web_accessible_resources": ["js/inject.js"]
+}
